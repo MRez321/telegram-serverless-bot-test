@@ -284,23 +284,25 @@ async function startBot() {
   console.log(`Bot Token: ${config.botToken ? 'Set (hidden)' : 'Not Set'}`);
   console.log(`Chat ID: ${config.chatId}`);
   console.log(`Relay URL: ${config.relayUrl}`);
-@  // Set up error handling
-@  bot.on('error', handleError);
-@  
-@  // Handle bot start (use text handler for this version)
-@  bot.onText(/\/start/, async (msg) => {
-@    await handleMessage(msg, msg.chat.id);
-@  });
-@  
-@  // Handle all other messages
-@  bot.on('message', async (msg) => {
-@    if (msg.chat.type === 'private') { // Only respond to private messages
-@      await handleMessage(msg, msg.chat.id);
-@    }
-@  });
-@  
-@  console.log('✅ Bot started successfully!');
-@  console.log('Bot is now listening for messages...');
+  
+  // Set up error handling
+  bot.on('error', handleError);
+  
+  // Handle bot start
+  bot.onText(/\/start/, async (msg) => {
+    await handleMessage(msg, msg.chat.id);
+  });
+  
+  // Handle all other messages
+  bot.on('message', async (msg) => {
+    if (msg.chat.type === 'private') { // Only respond to private messages
+      await handleMessage(msg, msg.chat.id);
+    }
+  });
+  
+  console.log('✅ Bot started successfully!');
+  console.log('Bot is now listening for messages...');
+}
 
 /**
  * Graceful shutdown

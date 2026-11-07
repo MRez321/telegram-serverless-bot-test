@@ -23,14 +23,19 @@
     "Your Name <your.email@example.com>"
   ],
   "license": "MIT",
-  "main": "index.js",
+  "main": "serverless-bot.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "node index.js -- --env=.env"
+    "start": "node serverless-bot.js",
+    "deploy": "node serverless-bot.js",
+    "health": "node -e \"require('./serverless-bot').healthCheck()\""
+  },
+  "engines": {
+    "node": "18.x"
   },
   "dependencies": {
-    "node-telegram-bot-api": "^0.5.0",
-    "dotenv": "^16.0.0",
-    "node-fetch": "^3.3.2"
+    "@tgcloud/cli": "^0.2.0",
+    "dotenv": "^16.6.1",
+    "node-fetch": "^3.3.2",
+    "node-telegram-bot-api": "^2.3.0"
   }
 }

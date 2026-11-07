@@ -2,3 +2,4 @@
 .junie/
 .env
 node_modules/
+.tgcloud/
