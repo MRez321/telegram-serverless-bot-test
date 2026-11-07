@@ -1,0 +1,36 @@
+{
+  "name": "serverless-telegram-bot",
+  "version": "1.0.0",
+  "description": "A simple serverless Telegram bot with relay support for connection testing",
+  "homepage": "https://github.com/yourusername/serverless-telegram-bot",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/serverless-telegram-bot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/serverless-telegram-bot/issues"
+  },
+  "keywords": [
+    "telegram",
+    "bot",
+    "serverless",
+    "relay",
+    "connection-test",
+    "testing"
+  ],
+  "author": "",
+  "contributors": [
+    "Your Name <your.email@example.com>"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js -- --env=.env"
+  },
+  "dependencies": {
+    "node-telegram-bot-api": "^0.5.0",
+    "dotenv": "^16.0.0",
+    "node-fetch": "^3.3.2"
+  }
+}
