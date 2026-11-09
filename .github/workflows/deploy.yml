@@ -16,6 +16,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'  # tgcloud CLI requires Node.js 18 or newer
+          cache: 'npm'
 
       - name: Install Dependencies
         run: npm ci
@@ -27,6 +28,12 @@ jobs:
           else
             echo "No build script found, skipping..."
           fi
+
+      - name: Fetch Cloud Snapshot
+        run: npx tgcloud fetch
+        env:
+          TGCLOUD_TOKEN: ${{ secrets.TGCLOUD_TOKEN }}
+          TGCLOUD_ASSUME_TTY: 1  # Helps avoid TTY-related errors in CI
 
       - name: Deploy to Telegram Serverless
         run: npx tgcloud push
